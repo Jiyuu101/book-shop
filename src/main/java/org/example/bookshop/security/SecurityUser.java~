@@ -1,0 +1,4 @@
+package org.example.bookshop.security;
+
+public class SeucrityUser {
+}

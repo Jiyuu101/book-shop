@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/uiLayout :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+<main role="main">
+    <div class="container mt-5">
+        <h2 class="text-center">BEST SELLERS</h2>
+        <div class="book-container">
+            <div class="row">
+                <div class="col-md-4" th:each="book : ${books}">
+                    <div class="card mb-4 shadow-lg rounded-2">
+                        <img class="book-image" width="415" height="450" th:src="@{'/images/books/'+${book.imageUrl}+'.jpg'}" alt="Book Cover">
+                        <h4 class="card-title text-center p-3" th:text="${book.title}"></h4>
+                        <div class="p-3 d-flex justify-content-between">
+
+                            <span  th:text="${'$' + book.price}"></span>
+                            <span th:text="${book.author.authorName}"></span>
+                        </div>
+                        <a th:href="@{'/home/add-to-cart/'+${book.id}}"
+                           class="add-to-cart btn btn-outline-info p-3 my-3 rounded-2">🛒 Add to cart</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+</body>
+</html>
